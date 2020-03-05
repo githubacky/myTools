@@ -8,6 +8,10 @@ Revision:
 	複数HTMLファイルの共通部分を一括更新する。
 	対象雛形ファイル"hoge.html"とテンプレートファイル"template.html"を合成し、
 	更新後ファイル"hoge.html"を出力する。
+ディレクトリ構成：
+	対象雛形htmlファイル格納先：src_html
+	更新後htmlファイル出力先：out_html
+	template.htmlは本プログラムと同じ階層に置くこと。
 '''
 
 # テンプレートファイルのリスト化
@@ -26,11 +30,9 @@ for t in target:
 
 		# ファイル合成
 		outli = []
-		#sidx = 0
 		for idx, tmp in enumerate(tmpli):
 			if "<!-- Start Target -->" in tmp:
 				outli.append(tmp)
-				#sidx = idx
 				for tg in tgtli:
 					outli.append(tg)
 			else:
